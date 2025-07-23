@@ -10,54 +10,115 @@
         /* Custom styles to ensure Inter font is applied */
         body {
             font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        /* Basic styling for the dark mode toggle icon */
+        
+        /* Dark mode toggle animation */
         #darkModeToggle svg {
             transition: transform 0.3s ease;
         }
         #darkModeToggle.dark-mode-active svg {
             transform: rotate(180deg);
         }
+        
+        /* Navigation styles */
+        .nav-bar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+        
+        .dark .nav-bar {
+            background-color: rgba(31, 41, 55, 0.9);
+        }
+        
+        .nav-bar.scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation link active state */
+        .nav-link.active {
+            background-color: rgb(59, 130, 246);
+            color: white;
+        }
+        
+        .dark .nav-link.active {
+            background-color: rgb(96, 165, 250);
+            color: rgb(31, 41, 55);
+        }
+        
+        /* Section spacing for navigation offset */
+        .section-anchor {
+            scroll-margin-top: 100px;
+        }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center p-4">
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen">
 
-    <header class="w-full max-w-4xl mx-auto flex justify-between items-start py-6 px-4 mb-8">
-        <div class="flex-grow text-center md:text-left">
-            <h1 class="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">Guillaume's Food Lists</h1>
-            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto md:mx-0">
-                Welcome to my curated collection of food and coffee lists from around the world. These are constantly updated as I travel and discover new favorites. Enjoy exploring!
-            </p>
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="nav-bar fixed top-0 left-0 right-0 z-50 px-4 py-3">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-6">
+                <a href="#top" class="nav-link px-3 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700 transition-all duration-200">
+                    Top
+                </a>
+                <a href="#european-adventures" class="nav-link px-3 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700 transition-all duration-200">
+                    Europe
+                </a>
+                <a href="#asian-expeditions" class="nav-link px-3 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700 transition-all duration-200">
+                    Asia
+                </a>
+                <a href="#north-american-bites" class="nav-link px-3 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700 transition-all duration-200">
+                    Americas
+                </a>
+            </div>
+            
+            <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h1M3 12H2m15.325-4.575l.707-.707M3.968 19.032l.707-.707M18.364 5.636l.707-.707M5.636 18.364l.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+            </button>
         </div>
-        <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300 flex-shrink-0 ml-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h1M3 12H2m15.325-4.575l.707-.707M3.968 19.032l.707-.707M18.364 5.636l.707-.707M5.636 18.364l.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
-        </button>
-    </header>
+    </nav>
 
-    <main class="w-full max-w-4xl mx-auto">
+    <div class="flex flex-col items-center p-4 pt-20">
+        <header id="top" class="w-full max-w-4xl mx-auto flex justify-center items-start py-6 px-4 mb-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">Guillaume's Food Lists</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Welcome to my curated collection of food and coffee lists from around the world. These are constantly updated as I travel and discover new favorites. Enjoy exploring!
+                </p>
+            </div>
+        </header>
+
+        <main class="w-full max-w-4xl mx-auto">
         </main>
 
-    <footer class="w-full max-w-4xl mx-auto text-center py-8 mt-12 border-t border-gray-300 dark:border-gray-700">
-        <p class="text-gray-700 dark:text-gray-300 mb-4 text-xl font-semibold">Other more beta lists worth checking out:</p>
-        <div class="flex flex-wrap justify-center gap-4 text-lg">
-            <a href="https://physh.net" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">My Main Site</a>
-            <span class="text-gray-400 dark:text-gray-500">|</span>
-            <a href="https://github.com/GuillaumeD" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">GitHub Profile</a>
-            <span class="text-gray-400 dark:text-gray-500">|</span>
-            <a href="https://x.com/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">X (Twitter)</a>
-            <span class="text-gray-400 dark:text-gray-500">|</span>
-            <a href="https://linkedin.com/in/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">LinkedIn</a>
-        </div>
-    </footer>
+        <footer class="w-full max-w-4xl mx-auto text-center py-8 mt-12 border-t border-gray-300 dark:border-gray-700">
+            <p class="text-gray-700 dark:text-gray-300 mb-4 text-xl font-semibold">Other more beta lists worth checking out:</p>
+            <div class="flex flex-wrap justify-center gap-4 text-lg">
+                <a href="https://physh.net" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">My Main Site</a>
+                <span class="text-gray-400 dark:text-gray-500">|</span>
+                <a href="https://github.com/GuillaumeD" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">GitHub Profile</a>
+                <span class="text-gray-400 dark:text-gray-500">|</span>
+                <a href="https://x.com/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">X (Twitter)</a>
+                <span class="text-gray-400 dark:text-gray-500">|</span>
+                <a href="https://linkedin.com/in/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">LinkedIn</a>
+            </div>
+        </footer>
+    </div>
 
     <script>
         // Array of link data, now structured with sections
         const linksData = [
             {
                 type: 'section',
+                id: 'european-adventures',
                 title: 'European Adventures',
                 description: 'Explore culinary delights and coffee gems across Europe, from the romantic streets of Paris to the hidden corners of Antwerp.',
                 links: [
@@ -119,6 +180,7 @@
             },
             {
                 type: 'section',
+                id: 'asian-expeditions',
                 title: 'Asian Expeditions',
                 description: 'Wherever you go, your mind will be blown!',
                 links: [
@@ -156,6 +218,7 @@
             },
             {
                 type: 'section',
+                id: 'north-american-bites',
                 title: 'North American Bites',
                 description: 'If you\'re stuck there, or willing to risk it...',
                 links: [
@@ -209,6 +272,8 @@
         const darkModeToggle = document.getElementById('darkModeToggle');
         const htmlElement = document.documentElement;
         const mainContent = document.querySelector('main');
+        const navbar = document.getElementById('navbar');
+        const navLinks = document.querySelectorAll('.nav-link');
 
         /**
          * Toggles dark mode on or off.
@@ -217,34 +282,72 @@
         function toggleDarkMode() {
             if (htmlElement.classList.contains('dark')) {
                 htmlElement.classList.remove('dark');
-                htmlElement.classList.add('light');
                 darkModeToggle.classList.remove('dark-mode-active');
-                localStorage.setItem('theme', 'light');
+                // Store preference in memory instead of localStorage for artifact compatibility
+                window.themePreference = 'light';
             } else {
-                htmlElement.classList.remove('light');
                 htmlElement.classList.add('dark');
                 darkModeToggle.classList.add('dark-mode-active');
-                localStorage.setItem('theme', 'dark');
+                // Store preference in memory instead of localStorage for artifact compatibility
+                window.themePreference = 'dark';
             }
         }
 
         /**
-         * Applies the theme based on localStorage preference or system preference.
+         * Applies the theme based on system preference initially.
          */
         function applyInitialTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                htmlElement.classList.remove('light', 'dark'); // Remove existing classes
-                htmlElement.classList.add(savedTheme);
-                if (savedTheme === 'dark') {
-                    darkModeToggle.classList.add('dark-mode-active');
-                }
-            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                // If no saved theme, check system preference
+            if (window.themePreference === 'dark' || 
+                (!window.themePreference && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 htmlElement.classList.add('dark');
                 darkModeToggle.classList.add('dark-mode-active');
+                window.themePreference = 'dark';
             } else {
-                htmlElement.classList.add('light');
+                htmlElement.classList.remove('dark');
+                window.themePreference = 'light';
+            }
+        }
+
+        /**
+         * Updates the active state of navigation links based on scroll position
+         */
+        function updateActiveNavLink() {
+            const sections = linksData.filter(item => item.type === 'section');
+            const scrollPos = window.scrollY + 120; // Account for navbar height
+            
+            let currentSection = 'top';
+            
+            sections.forEach(section => {
+                const element = document.getElementById(section.id);
+                if (element && element.offsetTop <= scrollPos) {
+                    currentSection = section.id;
+                }
+            });
+            
+            // Special case for top section
+            if (scrollPos < 200) {
+                currentSection = 'top';
+            }
+            
+            // Update nav link active states
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if ((href === '#top' && currentSection === 'top') ||
+                    (href === `#${currentSection}` && currentSection !== 'top')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        /**
+         * Handles navbar background on scroll
+         */
+        function handleNavbarScroll() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
         }
 
@@ -256,8 +359,9 @@
 
             linksData.forEach(sectionData => {
                 if (sectionData.type === 'section') {
-                    const sectionDiv = document.createElement('section'); // Use <section> tag for semantic markup
-                    sectionDiv.className = 'w-full mb-16 px-4'; // Full width for section, some margin bottom
+                    const sectionDiv = document.createElement('section');
+                    sectionDiv.className = 'section-anchor w-full mb-16 px-4';
+                    sectionDiv.id = sectionData.id;
 
                     // Section Title
                     const sectionTitle = document.createElement('h2');
@@ -280,7 +384,7 @@
                     sectionData.links.forEach(link => {
                         const card = document.createElement('a');
                         card.href = link.linkUrl;
-                        card.target = "_blank"; // Open links in a new tab
+                        card.target = "_blank";
                         card.className = `
                             block bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl
                             overflow-hidden transform transition-all duration-300 hover:scale-105
@@ -309,11 +413,34 @@
 
         // Event Listeners
         darkModeToggle.addEventListener('click', toggleDarkMode);
+        window.addEventListener('scroll', () => {
+            updateActiveNavLink();
+            handleNavbarScroll();
+        });
+
+        // Smooth scroll for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetId === 'top' ? 0 : targetElement.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
         // Initial setup on page load
         document.addEventListener('DOMContentLoaded', () => {
             applyInitialTheme();
             renderLinks();
+            updateActiveNavLink();
+            handleNavbarScroll();
         });
     </script>
 </body>
