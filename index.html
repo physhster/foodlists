@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>food.physh.net</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+        extend: {
+            fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            }
+        }
+        }
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Custom styles to ensure Inter font is applied */
@@ -294,33 +306,20 @@
          * Updates the 'dark' class on the HTML element and stores the preference in localStorage.
          */
         function toggleDarkMode() {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                darkModeToggle.classList.remove('dark-mode-active');
-                // Store preference in memory instead of localStorage for artifact compatibility
-                window.themePreference = 'light';
-            } else {
-                htmlElement.classList.add('dark');
-                darkModeToggle.classList.add('dark-mode-active');
-                // Store preference in memory instead of localStorage for artifact compatibility
-                window.themePreference = 'dark';
-            }
+            const isDark = document.documentElement.classList.toggle('dark');
+            darkModeToggle.classList.toggle('dark-mode-active', isDark);
+            localStorage.setItem('themePreference', isDark ? 'dark' : 'light');
         }
 
-        /**
-         * Applies the theme based on system preference initially.
-         */
         function applyInitialTheme() {
-            if (window.themePreference === 'dark' || 
-                (!window.themePreference && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                htmlElement.classList.add('dark');
-                darkModeToggle.classList.add('dark-mode-active');
-                window.themePreference = 'dark';
-            } else {
-                htmlElement.classList.remove('dark');
-                window.themePreference = 'light';
-            }
+            const saved = localStorage.getItem('themePreference');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const shouldBeDark = saved === 'dark' || (!saved && prefersDark);
+
+            document.documentElement.classList.toggle('dark', shouldBeDark);
+            darkModeToggle.classList.toggle('dark-mode-active', shouldBeDark);
         }
+
 
         /**
          * Updates the active state of navigation links based on scroll position
