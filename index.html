@@ -104,7 +104,7 @@
         <header id="top" class="w-full max-w-4xl mx-auto flex justify-center items-start py-6 px-4 mb-8">
             <div class="text-center">
                 <h1 class="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">Guillaume's Food Lists</h1>
-                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
                     Welcome to my curated collection of food and coffee lists from around the world. These are constantly updated as I travel and discover new favorites. Enjoy exploring!
                 </p>
             </div>
@@ -113,16 +113,16 @@
         <main class="w-full max-w-4xl mx-auto">
         </main>
 
-        <footer class="w-full max-w-4xl mx-auto text-center py-8 mt-12 border-t border-gray-300 dark:border-gray-700">
-            <p class="text-gray-700 dark:text-gray-300 mb-4 text-xl font-semibold">Other more beta lists worth checking out:</p>
+        <footer class="w-full max-w-4xl mx-auto text-center py-8 mt-12 border-t border-gray-300 dark:border-gray-600">
+            <p class="text-gray-800 dark:text-gray-200 mb-4 text-xl font-semibold">Other more beta lists worth checking out:</p>
             <div class="flex flex-wrap justify-center gap-4 text-lg">
-                <a href="https://physh.net" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">My Main Site</a>
+                <a href="https://physh.net" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200">My Main Site</a>
                 <span class="text-gray-400 dark:text-gray-500">|</span>
-                <a href="https://github.com/GuillaumeD" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">GitHub Profile</a>
+                <a href="https://github.com/GuillaumeD" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200">GitHub Profile</a>
                 <span class="text-gray-400 dark:text-gray-500">|</span>
-                <a href="https://x.com/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">X (Twitter)</a>
+                <a href="https://x.com/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200">X (Twitter)</a>
                 <span class="text-gray-400 dark:text-gray-500">|</span>
-                <a href="https://linkedin.com/in/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">LinkedIn</a>
+                <a href="https://linkedin.com/in/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200">LinkedIn</a>
             </div>
         </footer>
     </div>
@@ -379,14 +379,14 @@
 
                     // Section Title
                     const sectionTitle = document.createElement('h2');
-                    sectionTitle.className = 'text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-4 text-center';
+                    sectionTitle.className = 'text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-4 text-center';
                     sectionTitle.textContent = sectionData.title;
                     sectionDiv.appendChild(sectionTitle);
 
                     // Section Description (optional)
                     if (sectionData.description) {
                         const sectionDescription = document.createElement('p');
-                        sectionDescription.className = 'text-lg text-gray-600 dark:text-gray-300 mb-8 text-center max-w-2xl mx-auto';
+                        sectionDescription.className = 'text-lg text-gray-700 dark:text-gray-300 mb-8 text-center max-w-2xl mx-auto';
                         sectionDescription.textContent = sectionData.description;
                         sectionDiv.appendChild(sectionDescription);
                     }
@@ -409,9 +409,9 @@
                         card.innerHTML = `
                             <img src="${link.imageUrl}" alt="${link.title}" class="w-full h-48 object-cover rounded-t-xl">
                             <div class="p-6 flex flex-col flex-grow">
-                                <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">${link.title}</h3>
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">${link.title}</h3>
                                 <p class="text-gray-600 dark:text-gray-300 text-base flex-grow">${link.description}</p>
-                                <span class="mt-4 inline-block bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full self-start">
+                                <span class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white text-sm font-medium px-4 py-2 rounded-full self-start transition-colors duration-200">
                                     View List
                                 </span>
                             </div>
