@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>food.physh.net</title>
-    <!-- Tailwind CSS CDN - Note: This CDN is for development/prototyping.
-         For a production site, consider a build process to purge unused CSS
-         and optimize performance. For a simple GitHub Pages site, it's generally fine. -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Custom styles to ensure Inter font is applied */
@@ -27,109 +23,151 @@
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center p-4">
 
-    <!-- Header Section -->
-    <header class="w-full max-w-4xl mx-auto flex justify-between items-center py-6 px-4 mb-8">
-        <h1 class="text-4xl font-extrabold text-blue-600 dark:text-blue-400">Guillaume's Food Lists</h1>
-        <!-- Dark Mode Toggle Button -->
-        <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300">
+    <header class="w-full max-w-4xl mx-auto flex justify-between items-start py-6 px-4 mb-8">
+        <div class="flex-grow text-center md:text-left">
+            <h1 class="text-4xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">Guillaume's Food Lists</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto md:mx-0">
+                Welcome to my curated collection of food and coffee lists from around the world. These are constantly updated as I travel and discover new favorites. Enjoy exploring!
+            </p>
+        </div>
+        <button id="darkModeToggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300 flex-shrink-0 ml-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h1M3 12H2m15.325-4.575l.707-.707M3.968 19.032l.707-.707M18.364 5.636l.707-.707M5.636 18.364l.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
         </button>
     </header>
 
-    <!-- Main Content Area - Links Grid -->
-    <main class="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Link cards will be dynamically inserted here by JavaScript -->
-    </main>
+    <main class="w-full max-w-4xl mx-auto">
+        </main>
 
-    <!-- JavaScript for Dark Mode and Content Generation -->
+    <footer class="w-full max-w-4xl mx-auto text-center py-8 mt-12 border-t border-gray-300 dark:border-gray-700">
+        <p class="text-gray-700 dark:text-gray-300 mb-4 text-xl font-semibold">Other things worth checking out:</p>
+        <div class="flex flex-wrap justify-center gap-4 text-lg">
+            <a href="https://physh.net" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">My Main Site</a>
+            <span class="text-gray-400 dark:text-gray-500">|</span>
+            <a href="https://github.com/GuillaumeD" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">GitHub Profile</a>
+            <span class="text-gray-400 dark:text-gray-500">|</span>
+            <a href="https://x.com/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">X (Twitter)</a>
+            <span class="text-gray-400 dark:text-gray-500">|</span>
+            <a href="https://linkedin.com/in/guillaume" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200">LinkedIn</a>
+        </div>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-6">&copy; 2025 Guillaume. All rights reserved.</p>
+    </footer>
+
     <script>
-        // Array of link data
+        // Array of link data, now structured with sections
         const linksData = [
             {
-                id: 'link1',
-                title: 'Paris Restaurants',
-                description: 'This needs no introduction',
-                imageUrl: '/foodlist/img/list_img/paris.jpg',
-                linkUrl: 'https://goo.gl/maps/Nt1msrN3tdTUdnvu7',
+                type: 'section',
+                title: 'European Adventures',
+                description: 'Explore culinary delights and coffee gems across Europe, from the romantic streets of Paris to the hidden corners of Antwerp.',
+                links: [
+                    {
+                        id: 'link1',
+                        title: 'Paris Restaurants',
+                        description: 'This needs no introduction – a definitive guide to Parisian dining.',
+                        imageUrl: '/foodlist/img/list_img/paris.jpg',
+                        linkUrl: 'https://goo.gl/maps/Nt1msrN3tdTUdnvu7',
+                    },
+                    {
+                        id: 'link2',
+                        title: 'Paris Specialty Coffee',
+                        description: 'With many, many coffee shops, a little curation was needed to find the best brews.',
+                        imageUrl: '/foodlist/img/list_img/paris-coffee.jpg',
+                        linkUrl: 'https://goo.gl/maps/VziTCQNJ5yio8uWq5',
+                    },
+                    {
+                        id: 'link3',
+                        title: 'Lyon',
+                        description: 'Widely regarded as the best food city in France – a must-visit for gourmands!',
+                        imageUrl: '/foodlist/img/list_img/lyon.jpg',
+                        linkUrl: 'https://goo.gl/maps/Bu5udBT4RdDMeHMD6',
+                    },
+                    {
+                        id: 'link4',
+                        title: 'Burgundy',
+                        description: 'Where to eat delicious regional fare between wine tastings.',
+                        imageUrl: '/foodlist/img/list_img/burgundy.jpg',
+                        linkUrl: 'https://goo.gl/maps/q66XohFbSEFhcJjk8',
+                    },
+                    {
+                        id: 'link5',
+                        title: 'Antwerp',
+                        description: 'Still discovering this vibrant city, but here\'s some stuff worth trying!',
+                        imageUrl: '/foodlist/img/list_img/ant.jpg',
+                        linkUrl: 'https://goo.gl/maps/49AQ2juqvgCMyrEh8',
+                    },
+                    {
+                        id: 'link6',
+                        title: 'Antwerp Coffee',
+                        description: 'Not the most developed scene, but there are some true gems to be found.',
+                        imageUrl: '/foodlist/img/list_img/ant-coffee.jpg',
+                        linkUrl: 'https://maps.app.goo.gl/4aFqbCgd1crnf7un9', // Placeholder link
+                    },
+                ]
             },
             {
-                id: 'link2',
-                title: 'Paris Specialty Coffee',
-                description: 'With many many coffee shops, a little curation was needed',
-                imageUrl: '/foodlist/img/list_img/paris-coffee.jpg',
-                linkUrl: 'https://goo.gl/maps/VziTCQNJ5yio8uWq5',
+                type: 'section',
+                title: 'Asian Expeditions',
+                description: 'From the bustling street food of Bangkok to the refined dining of Tokyo, a journey through Asian flavors.',
+                links: [
+                    {
+                        id: 'link7',
+                        title: 'Bangkok',
+                        description: 'The most insane and insanely affordable food scene you\'ll ever encounter.',
+                        imageUrl: '/foodlist/img/list_img/bkk.jpg',
+                        linkUrl: 'https://maps.app.goo.gl/6wyBay3vmPQXn91fA', // Placeholder link
+                    },
+                    {
+                        id: 'link8',
+                        title: 'Bangkok Coffee & Tea',
+                        description: 'Bangkok doesn\'t mess around when it comes to coffee and tea – truly impressive.',
+                        imageUrl: '/foodlist/img/list_img/bkk-coffee.jpg',
+                        linkUrl: 'https://goo.gl/maps/pXRki5icdgfuHPy57',
+                    },
+                    {
+                        id: 'link9',
+                        title: 'Tokyo',
+                        description: 'It\'s a bit crowded these days, but the food experience is unparalleled.',
+                        imageUrl: '/foodlist/img/list_img/tokyo.jpg',
+                        linkUrl: 'https://goo.gl/maps/ByJLVHY4YRP2',
+                    },
+                    {
+                        id: 'link10',
+                        title: 'Rest of Japan',
+                        description: 'Beyond Tokyo, discover culinary treasures worth a train ride or a scenic drive.',
+                        imageUrl: '/foodlist/img/list_img/roj.jpg',
+                        linkUrl: 'https://goo.gl/maps/pXRki5icdgfuHPy57',
+                    },
+                ]
             },
             {
-                id: 'link3',
-                title: 'Lyon',
-                description: 'The best food city in France!',
-                imageUrl: '/foodlist/img/list_img/lyon.jpg',
-                linkUrl: 'https://goo.gl/maps/Bu5udBT4RdDMeHMD6',
-            },
-            {
-                id: 'link4',
-                title: 'Burgundy',
-                description: 'Where to eat between wine tastings',
-                imageUrl: '/foodlist/img/list_img/burgundy.jpg',
-                linkUrl: 'https://goo.gl/maps/q66XohFbSEFhcJjk8',
-            },
-            {
-                id: 'link5',
-                title: 'Antwerp',
-                description: 'Still Discovering, but here&apos;s some stuff',
-                imageUrl: '/foodlist/img/list_img/ant.jpg',
-                linkUrl: 'https://goo.gl/maps/49AQ2juqvgCMyrEh8',
-            },
-            {
-                id: 'link6',
-                title: 'Antwerp Coffee',
-                description: 'Not the most developed scene, but there are some gems',
-                imageUrl: '/foodlist/img/list_img/ant-coffee.jpg',
-                linkUrl: 'https://maps.app.goo.gl/4aFqbCgd1crnf7un9',
-            },
-            {
-                id: 'link7',
-                title: 'Bangkok',
-                description: 'The most insane and insanely affordable food scene',
-                imageUrl: '/foodlist/img/list_img/bkk.jpg',
-                linkUrl: 'https://maps.app.goo.gl/6wyBay3vmPQXn91fA',
-            },
-            {
-                id: 'link8',
-                title: 'Bangkok Coffee & Tea',
-                description: 'Bangkok doesn&apos;t mess around when it comes to coffee and tea',
-                imageUrl: '/foodlist/img/list_img/bkk-coffee.jpg',
-                linkUrl: 'https://goo.gl/maps/pXRki5icdgfuHPy57',
-            },
-            {
-                id: 'link9',
-                title: 'Tokyo',
-                description: 'It&apos;s a bit crowded these days',
-                imageUrl: '/foodlist/img/list_img/tokyo.jpg',
-                linkUrl: 'https://goo.gl/maps/ByJLVHY4YRP2',
-            },
-            {
-                id: 'link10',
-                title: 'Rest of Japan',
-                description: 'It&apos;s worth a train ride, or a little drive',
-                imageUrl: '/foodlist/img/list_img/roj.jpg',
-                linkUrl: 'https://goo.gl/maps/pXRki5icdgfuHPy57',
-            },
-            {
-                id: 'link11',
-                title: 'LA',
-                description: '...or is it HELL-A? Food&apos;s good tho',
-                imageUrl: '/foodlist/img/list_img/la.jpg',
-                linkUrl: 'https://goo.gl/maps/wNJuCNk3w4w',
-            },
-            {
-                id: 'link11',
-                title: 'CDMX',
-                description: 'hopefully the altitude and bad water won&apos;t kill you',
-                imageUrl: '/foodlist/img/list_img/cdmx.jpg',
-                linkUrl: 'https://goo.gl/maps/2ng45s8iBko',
+                type: 'section',
+                title: 'North American Bites',
+                description: 'A taste of the Americas, from the sprawling culinary landscape of LA to the vibrant flavors of CDMX.',
+                links: [
+                    {
+                        id: 'link11',
+                        title: 'LA',
+                        description: '...or is it HELL-A? The food scene is undeniably good though!',
+                        imageUrl: '/foodlist/img/list_img/la.jpg',
+                        linkUrl: 'https://goo.gl/maps/wNJuCNk3w4w',
+                    },
+                    {
+                        id: 'link12',
+                        title: 'CDMX',
+                        description: 'Hopefully the altitude and bad water won\'t kill you – the food is divine!',
+                        imageUrl: '/foodlist/img/list_img/cdmx.jpg',
+                        linkUrl: 'https://goo.gl/maps/2ng45s8iBko',
+                    },
+                    {
+                        id: 'link13',
+                        title: 'CDMX Coffee & Bakeries',
+                        description: 'Mexico City boasts a real strong coffee and bakery scene, not to be missed.',
+                        imageUrl: '/foodlist/img/list_img/cdmx.jpg',
+                        linkUrl: 'https://goo.gl/maps/rwnkt9Vn4a1MXj1M8',
+                    },
+                ]
             },
         ];
 
@@ -177,32 +215,61 @@
         }
 
         /**
-         * Generates and appends link cards to the main content area.
+         * Generates and appends link cards to the main content area, organized by sections.
          */
         function renderLinks() {
             mainContent.innerHTML = ''; // Clear existing content
-            linksData.forEach(link => {
-                const card = document.createElement('a');
-                card.href = link.linkUrl;
-                card.target = "_blank"; // Open links in a new tab
-                card.className = `
-                    block bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl
-                    overflow-hidden transform transition-all duration-300 hover:scale-105
-                    focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50
-                    flex flex-col
-                `;
 
-                card.innerHTML = `
-                    <img src="${link.imageUrl}" alt="${link.title}" class="w-full h-48 object-cover rounded-t-xl">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">${link.title}</h2>
-                        <p class="text-gray-600 dark:text-gray-300 text-base flex-grow">${link.description}</p>
-                        <span class="mt-4 inline-block bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full self-start">
-                            View List
-                        </span>
-                    </div>
-                `;
-                mainContent.appendChild(card);
+            linksData.forEach(sectionData => {
+                if (sectionData.type === 'section') {
+                    const sectionDiv = document.createElement('section'); // Use <section> tag for semantic markup
+                    sectionDiv.className = 'w-full mb-16 px-4'; // Full width for section, some margin bottom
+
+                    // Section Title
+                    const sectionTitle = document.createElement('h2');
+                    sectionTitle.className = 'text-3xl sm:text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-4 text-center';
+                    sectionTitle.textContent = sectionData.title;
+                    sectionDiv.appendChild(sectionTitle);
+
+                    // Section Description (optional)
+                    if (sectionData.description) {
+                        const sectionDescription = document.createElement('p');
+                        sectionDescription.className = 'text-lg text-gray-600 dark:text-gray-300 mb-8 text-center max-w-2xl mx-auto';
+                        sectionDescription.textContent = sectionData.description;
+                        sectionDiv.appendChild(sectionDescription);
+                    }
+
+                    // Grid container for links within this section
+                    const linksGrid = document.createElement('div');
+                    linksGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+
+                    sectionData.links.forEach(link => {
+                        const card = document.createElement('a');
+                        card.href = link.linkUrl;
+                        card.target = "_blank"; // Open links in a new tab
+                        card.className = `
+                            block bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl
+                            overflow-hidden transform transition-all duration-300 hover:scale-105
+                            focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50
+                            flex flex-col
+                        `;
+
+                        card.innerHTML = `
+                            <img src="${link.imageUrl}" alt="${link.title}" class="w-full h-48 object-cover rounded-t-xl">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">${link.title}</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-base flex-grow">${link.description}</p>
+                                <span class="mt-4 inline-block bg-blue-500 text-white text-sm font-medium px-4 py-2 rounded-full self-start">
+                                    View List
+                                </span>
+                            </div>
+                        `;
+                        linksGrid.appendChild(card);
+                    });
+
+                    sectionDiv.appendChild(linksGrid);
+                    mainContent.appendChild(sectionDiv);
+                }
             });
         }
 
