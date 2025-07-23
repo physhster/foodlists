@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en"> <!-- Removed initial class="light" -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,6 +99,7 @@
          * Updates the 'dark' class on the HTML element and stores the preference in localStorage.
          */
         function toggleDarkMode() {
+            console.log('Toggle Dark Mode clicked!'); // Added for debugging
             if (htmlElement.classList.contains('dark')) {
                 htmlElement.classList.remove('dark');
                 htmlElement.classList.add('light');
